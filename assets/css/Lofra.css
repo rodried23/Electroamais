@@ -1,26 +1,126 @@
 :root {
-    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --heading-font: "Montserrat", sans-serif;
-    --nav-font: "Raleway", sans-serif;
-  }
-  
-  :root { 
-    --background-color: #ffffff; 
-    --default-color: #2b180d; 
-    --heading-color: #1b2f45; 
-    --accent-color: #56b8e6; 
-    --surface-color: #ffffff; 
-    --contrast-color: #ffffff; 
-  }
-  
-  :root {
-    --nav-color: rgba(255, 255, 255, 0.6); 
-    --nav-hover-color: #ffffff;
-    --nav-mobile-background-color: #ffffff; 
-    --nav-dropdown-background-color: #ffffff; 
-    --nav-dropdown-color: #212529;
-    --nav-dropdown-hover-color: #56b8e6; 
-  }
+  --default-font: "Roboto", sans-serif;
+  --heading-font: "Montserrat", sans-serif;
+  --nav-font: "Raleway", sans-serif;
+
+  --background-color: #ffffff;
+  --default-color: #2b180d;
+  --heading-color: #1b2f45;
+  --accent-color: #56b8e6;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+.dark-mode {
+  --background-color: #121212;
+  --default-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --accent-color: #56b8e6;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+.dark-mode .row {
+  background-color: #292929 !important;
+}	
+
+.dark-mode a {
+  color: var(--accent-color) !important;
+}
+
+.dark-mode a:hover {
+  color: color-mix(in srgb, var(--accent-color), white 25%);
+}
+
+.dark-mode .footer {
+  background-color: #292929 !important;
+  color: var(--default-color) !important;
+}
+
+.dark-mode .button,
+.dark-mode .card,
+.dark-mode .box {
+  background-color: #d6d6d6 !important;
+  color: white !important;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode a {
+  color: white !important;
+}
+
+.dark-mode, 
+.dark-mode body, 
+.dark-mode header, 
+.dark-mode footer, 
+.dark-mode section, 
+.dark-mode .container, 
+.dark-mode .row {
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+body, header, footer, section, .container, .row {
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+#dark-mode-toggle {
+  position: fixed;
+  left: 15px;
+  bottom: 85px;
+  z-index: 99999;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: all 0.4s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  border: none;
+}
+
+#dark-mode-toggle:hover {
+  background-color: #444;
+}
+
+.whatsapp {
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background-color: #204F46;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: all 0.4s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp i {
+  font-size: 28px;
+  color: var(--contrast-color);
+}
+
+
   
   .light-background {
     --background-color: #f6fcfe;
@@ -41,12 +141,6 @@
   
   html {
     scroll-behavior: smooth;
-  }
-  
-  body {
-    color: var(--default-color);
-    background-color: var(--background-color);
-    font-family: var(--default-font);
   }
   
   a {
@@ -519,29 +613,6 @@
     opacity: 1;
   }
   
-  .whatsapp {
-    position: fixed;
-    visibility: hidden;
-    opacity: 0;
-    left: 15px;
-    bottom: 15px;
-    z-index: 99999;
-    background-color: #204F46;
-    width: 60px;
-    height: 60px; 
-    border-radius: 100%;
-    transition: all 0.4s;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .whatsapp i {
-    font-size: 28px;
-    color: var(--contrast-color);
-    line-height: 0;
-  }
   
   .whatsapp:hover {
     background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
@@ -732,8 +803,29 @@
     border-radius: 3%;
 }
 
+#localização h3{
+    font-family: var(--heading-font);
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
 #localização.row.align-items-center{
     background-color: #f6fcfe;
+}
+
+#SobreLofra h1{
+    font-family: var(--heading-font);
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+#contatolofra h3{
+    font-family: var(--heading-font);
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: 800;
 }
 
 .container .row #SobreLofra {
@@ -742,6 +834,7 @@
     background-position: center;
     background-repeat: no-repeat;
     height: 300px;
+    width: auto;
     position: relative;
 }
 
@@ -780,7 +873,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(86, 184, 230, 0.1); 
+        background: rgba(86, 184, 230, 0.5);; 
     }
     
     .container .row #SobreLofra #textolofra {
@@ -793,6 +886,7 @@
 .carousel-inner img {
     height: 400px;
     object-fit: contain;
+    background-color: rgb(86, 184, 230, 0.1);
   }
   
   .carousel-control-prev-icon,
@@ -813,4 +907,11 @@
 
   #lofracli{
     background-color: rgba(86, 184, 230, 0.1);
+  }
+
+  #lofracli h3{
+    font-family: var(--heading-font);
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: 800;
   }

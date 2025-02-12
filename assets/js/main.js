@@ -170,16 +170,16 @@ function initMap() {
 window.initMap = initMap;
 
 document.getElementById("lavadorafoto").addEventListener("click", function() {
-  window.open("https://w.app/w9xa2p", "_blank");
+  window.open("https://wa.me/5511947291277?text=Ol%C3%A1,%20vim%20diretamente%20do%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20um%20reparo%20de%20uma%20Lavadora!", "_blank");
 });
 document.getElementById("geladeirafoto").addEventListener("click", function() {
-  window.open("https://w.app/jof7wa", "_blank");
+  window.open("https://wa.me/5511947291277?text=Ol%C3%A1,%20vim%20diretamente%20do%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20um%20reparo%20de%20uma%20Geladeira!", "_blank");
 });
 document.getElementById("fornofoto").addEventListener("click", function() {
-  window.open("https://w.app/gdkgjz", "_blank");
+  window.open("https://wa.me/5511947291277?text=Ol%C3%A1,%20vim%20diretamente%20do%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20um%20reparo%20de%20um%20Forno!", "_blank");
 });
 document.getElementById("fogaofoto").addEventListener("click", function() {
-  window.open("https://w.app/9tcygv", "_blank");
+  window.open("https://wa.me/5511947291277?text=Ol%C3%A1,%20vim%20diretamente%20do%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20um%20reparo%20de%20um%20Fog%C3%A3o!", "_blank");
 });
 
 const carousel = document.querySelector('#carouselExampleIndicators');
@@ -203,3 +203,32 @@ const carousel = document.querySelector('#carouselExampleIndicators');
       carousel.querySelector('.carousel-control-prev').click();
     }
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+    if (!darkModeToggle) {
+        console.error("Erro: O botão de modo escuro não foi encontrado no HTML!");
+        return;
+    }
+
+    console.log("Botão de Modo Escuro encontrado!");
+
+    const body = document.body;
+
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        body.classList.add("dark-mode");
+    }
+
+    darkModeToggle.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("dark-mode", "enabled");
+        } else {
+            localStorage.setItem("dark-mode", "disabled");
+        }
+    });
+
+    console.log("Script de modo escuro carregado com sucesso!");
+});

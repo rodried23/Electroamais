@@ -1,19 +1,15 @@
-function toggleScrolled() {
-    const selectBody = document.querySelector('body');
-    const selectHeader = document.querySelector('#header');
-    
-    if (!selectHeader) return;
-
-    if (window.scrollY > 10) {
-        selectHeader.classList.add('scrolled');
-    } else {
-        selectHeader.classList.remove('scrolled');
+(function() {
+    "use strict";
+  
+    function toggleScrolled() {
+      const selectBody = document.querySelector('body');
+      const selectHeader = document.querySelector('#header');
+      if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
+      window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
     }
-}
-
-document.addEventListener('scroll', toggleScrolled);
-window.addEventListener('load', toggleScrolled);
-
+  
+    document.addEventListener('scroll', toggleScrolled);
+    window.addEventListener('load', toggleScrolled);
   
     const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
   
@@ -139,7 +135,9 @@ window.addEventListener('load', toggleScrolled);
       });
   
     });
-
+  
+  })();
+  
   function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 9,
@@ -171,16 +169,55 @@ window.addEventListener('load', toggleScrolled);
   
   window.initMap = initMap;
   
-  document.getElementById("lavadorafoto").addEventListener("click", function() {
-    window.open("https://w.app/w9xa2p", "_blank");
+  const carousel = document.querySelector('#carouselExampleIndicators');
+  
+    let startX, endX;
+  
+    carousel.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+    });
+  
+    carousel.addEventListener('touchmove', function(e) {
+      endX = e.touches[0].clientX;
+    });
+  
+    carousel.addEventListener('touchend', function() {
+      const threshold = 50; 
+  
+      if (startX - endX > threshold) {
+        carousel.querySelector('.carousel-control-next').click();
+      } else if (endX - startX > threshold) {
+        carousel.querySelector('.carousel-control-prev').click();
+      }
+    });
+  
+    document.addEventListener("DOMContentLoaded", function () {
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+  
+      if (!darkModeToggle) {
+          console.error("Erro: O botão de modo escuro não foi encontrado no HTML!");
+          return;
+      }
+  
+      console.log("Botão de Modo Escuro encontrado!");
+  
+      const body = document.body;
+  
+      if (localStorage.getItem("dark-mode") === "enabled") {
+          body.classList.add("dark-mode");
+      }
+  
+      darkModeToggle.addEventListener("click", function () {
+          body.classList.toggle("dark-mode");
+  
+          if (body.classList.contains("dark-mode")) {
+              localStorage.setItem("dark-mode", "enabled");
+          } else {
+              localStorage.setItem("dark-mode", "disabled");
+          }
+      });
+  
+      console.log("Script de modo escuro carregado com sucesso!");
   });
-  document.getElementById("geladeirafoto").addEventListener("click", function() {
-    window.open("https://w.app/jof7wa", "_blank");
-  });
-  document.getElementById("fornofoto").addEventListener("click", function() {
-    window.open("https://w.app/gdkgjz", "_blank");
-  });
-  document.getElementById("fogaofoto").addEventListener("click", function() {
-    window.open("https://w.app/9tcygv", "_blank");
-  });
+  
   
